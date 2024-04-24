@@ -1,11 +1,14 @@
 import React from "react";
 import "./assets/style.css";
-import Main from "./components/Main";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes/Routes";
 
 function App() {
   return (
     <>
-      <Main />
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
     </>
   );
 }

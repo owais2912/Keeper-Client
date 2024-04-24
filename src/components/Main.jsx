@@ -1,34 +1,38 @@
 import React, { useEffect, useState } from "react";
-import Header from "./Partials/Header";
-import Footer from "./Partials/Footer";
-import CreateArea from "./CreateArea";
-import Note from "./Note";
+import CreateArea from "../components/Notes/CreateArea";
+import Note from "../components/Notes/Note";
 import { getNotes, addNote, deleteNote } from "../api/api";
+import HOC from "../pages/hoc";
 
 const Main = () => {
   const [notesList, setNotesList] = useState([]);
+  const token = localStorage.getItem("token");
+
   useEffect(() => {
     const fetchData = async () => {
-      const notes = await getNotes();
-      setNotesList(notes);
+      try {
+        const notes = await getNotes(token);
+        setNotesList(notes);
+      } catch (error) {
+        console.error(error);
+      }
     };
     fetchData();
   }, []);
 
   const handleAddNote = async (note) => {
     await addNote(note);
-    const updatedNotes = await getNotes();
+    const updatedNotes = await getNotes(token);
     setNotesList(updatedNotes);
   };
 
   const handleDeleteNote = async (id) => {
     await deleteNote(id);
-    const updatedNotes = await getNotes();
+    const updatedNotes = await getNotes(token);
     setNotesList(updatedNotes);
   };
   return (
     <>
-      <Header />
       <CreateArea onAdd={handleAddNote} />
       {notesList && notesList.length > 0 ? (
         notesList.map((noteItem, index) => (
@@ -43,9 +47,8 @@ const Main = () => {
       ) : (
         <p>No notes found</p>
       )}
-      <Footer />
     </>
   );
 };
 
-export default Main;
+export default HOC(Main);
