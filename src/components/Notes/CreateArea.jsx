@@ -6,6 +6,8 @@ import { Zoom } from "@mui/material";
 function CreateArea(props) {
   const [note, setNote] = useState({ title: "", content: "" });
   const [isExpanded, setExpanded] = useState(false);
+  const authenticated = JSON.parse(localStorage.getItem("user-data"));
+  const userId = authenticated ? authenticated.id : null;
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -18,7 +20,8 @@ function CreateArea(props) {
   }
 
   function handleAdd(e) {
-    props.onAdd(note);
+    const noteWithUserId = { ...note, userId: userId };
+    props.onAdd(noteWithUserId);
     setNote({ title: "", content: "" });
     e.preventDefault();
   }
