@@ -7,23 +7,33 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 body {
-  background: #eee;
   padding: 0 16px;
-  background-color: #eee;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
 }
 
 .header {
-  background-color: #f5ba13;
+  background-color: #ff4e4b;
   margin: auto -16px;
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header h1 {
   color: #fff;
   font-family: "McLaren", cursive;
   font-weight: 200;
+}
+.header div {
+  display: flex;
+  align-items: center;
+}
+
+.header div p {
+  margin-right: 10px;
 }
 
 .footer {
@@ -61,7 +71,7 @@ body {
   position: relative;
   float: right;
   margin-right: 10px;
-  color: #f5ba13;
+  color: #ff4e4b;
   border: none;
   width: 36px;
   height: 36px;
@@ -92,7 +102,7 @@ form.create-note button {
   position: absolute;
   right: 18px;
   bottom: -18px;
-  background: #f5ba13;
+  background: #ff4e4b;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -101,4 +111,130 @@ form.create-note button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
+}
+
+.registration-form {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 20px;
+  width: 480px;
+  margin: 30px auto;
+}
+
+.registration-form h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.registration-form input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ff4e4b;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  font-family: inherit;
+  outline: none;
+}
+.registration-form input:focus {
+  /* Change border color when input is focused */
+  border-bottom-color: #f02622; /* Example blue color */
+}
+
+.registration-form button {
+  background: #ff4e4b;
+  color: #fff;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  outline: none;
+}
+
+.registration-form button:hover {
+  background: #f02622;
+  /* background: #fff;
+  color: #ff4e4b; */
+}
+
+/* .registration-form .error-message {
+  color: red;
+  margin-top: 10px;
+} */
+.registration-form .error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 0.9em; /* Adjust font size */
+}
+
+.registration-form p {
+  font-size: 0.9em; /* Adjust font size for other paragraphs */
+  margin-bottom: 10px; /* Add some bottom margin */
+}
+
+.registration-form p a {
+  color: #ff4e4b; /* Change link color */
+  text-decoration: none;
+}
+
+.registration-form p a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+.welcome-container {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  height: 100vh; /* Set container height to full viewport height */
+  padding: 20px;
+}
+
+.welcome-message,
+.register-container {
+  width: 45%; /* Adjust as needed */
+}
+.welcome-message {
+  padding: 20px;
+  /* background-color: whitesmoke;
+  box-shadow: 0 2px 5px #ccc; */
+}
+.welcome-message h1 {
+  color: #ff4e4b;
+}
+.welcome-text {
+  color: #fff;
+}
+/* NotFound.css */
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.not-found h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ff4e4b;
+}
+
+.not-found p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.not-found a {
+  font-size: 1.2rem;
+  color: #ff4e4b;
+  text-decoration: none;
+}
+
+.not-found a:hover {
+  text-decoration: underline;
 }
